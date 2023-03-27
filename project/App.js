@@ -1,7 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
+//import { useNavigation } from '@react-navigation/native';
 
-const backgroundImage = require('../assets/back.png');
+function handleClick(){
+  console.log("clicked")
+ // navigate("Welcome"); // assuming you have a screen named "Welcome"
+}
 
 export default function MyPage() {
   return (
@@ -12,14 +16,14 @@ export default function MyPage() {
           <TextInput style={styles.textInput} />
         </View>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputLabel}>Quel est votre poids ?</Text>
+          <Text style={styles.inputLabel}>Quel est ton poids ?</Text>
           <View style={styles.weightInputContainer}>
             <TextInput style={styles.weightInput} />
             <Text style={styles.weightUnit}>Kg</Text>
           </View>
         </View>
-        <TouchableOpacity style={styles.startButton}>
-          <Text style={styles.startButtonText}>start</Text>
+        <TouchableOpacity style={styles.startButton} onPress={handleClick}>
+          <Text style={styles.inputLabel}>Demmarer</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
