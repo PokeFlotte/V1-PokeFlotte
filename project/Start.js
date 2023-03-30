@@ -11,22 +11,18 @@ export default function Start({ navigation }) {
     return (
         <ImageBackground source={backImage} style={styles.backgroundImage}>
             <View style={styles.container}>
-                <View style={styles.inputContainer}>
-                    <Text style={styles.inputLabel}>Comment t'appelles-tu ?</Text>
-                    <TextInput style={styles.textInput} />
-                </View>
-                <View style={styles.inputContainer}>
-                    <Text style={styles.inputLabel}>Quel est ton poids ?</Text>
-                    <View style={styles.weightInputContainer}>
-                        <TextInput style={styles.weightInput} />
-                        <Text style={styles.weightUnit}>Kg</Text>
-                    </View>
+                <View style={styles.headerContainer}>
+                    <Text style={styles.headerText}>Boire de l'eau est essentiel pour maintenir une bonne santé.
+                        L'eau aide à réguler la température corporelle, à éliminer les toxines,
+                        à maintenir une peau saine et à prévenir la déshydratation.   <br></br>   <br></br>
+                        Il est important de boire une quantité suffisante d'eau chaque jour,
+                        et cette quantité varie en fonction du poids de chaque individu.</Text>
                 </View>
                 <TouchableOpacity style={styles.startButton} onPress={handleClick}>
-                    <Text style={styles.inputLabel}>Demmarer</Text>
+                    <Text style={styles.startButtonText}>Let's GO</Text>
                 </TouchableOpacity>
             </View>
-        </ImageBackground>
+        </ImageBackground >
     );
 }
 
@@ -40,20 +36,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    inputContainer: {
-        backgroundColor: '#C80D0D',
-        borderWidth: 2,
-        borderColor: '#C80D0D',
-        borderRadius: 10,
+    headerContainer: {
+        /*backgroundColor: 'rgba(12,192,223,0.5)',*/
         paddingHorizontal: 20,
         paddingVertical: 10,
         marginBottom: 20,
+        borderRadius: 10,
     },
-    inputLabel: {
-        color: 'white',
+    headerText: {
+        color: 'black',
         fontSize: 18,
         fontWeight: 'bold',
-        marginBottom: 10,
+        textAlign: 'center',
     },
     textInput: {
         backgroundColor: 'white',
@@ -62,24 +56,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingHorizontal: 10,
         paddingVertical: 5,
-    },
-    weightInputContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    weightInput: {
-        backgroundColor: 'white',
-        borderColor: 'black',
-        borderWidth: 5,
-        borderRadius: 10,
-        paddingHorizontal: 10,
-        paddingVertical: 5,
-        marginRight: 10,
-    },
-    weightUnit: {
-        color: 'white',
-        fontSize: 18,
-        fontWeight: 'bold',
     },
     startButton: {
         backgroundColor: '#C80D0D',

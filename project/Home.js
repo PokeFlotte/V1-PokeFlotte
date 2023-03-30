@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Modal } from 'react-native';
 
-export default function Home() {
+export default function Home({ navigation }) {
     const [count, setCount] = useState(0);
     const [progress, setProgress] = useState(0);
     const MAX_PROGRESS = 5;
     const [progressWidth, setProgressWidth] = useState('0%');
+    const [showModal, setShowModal] = useState(false);
 
     const handlePress = () => {
         if (count < MAX_PROGRESS) {
@@ -17,10 +18,20 @@ export default function Home() {
         }
     };
 
-    const handlePressPokeBall = () => {
-        console.log('clicked, pokeball');
-        navigation.navigate('Option');
+    const showPopup = () => {
+        setShowModal(true);
+    }
 
+    const handlePressPokeBall = () => {
+        showPopup();
+    };
+    const handlePressPokeDex = () => {
+        navigation.navigate('Pokedex');
+    };
+
+
+    const handlePressOption = () => {
+        navigation.navigate('Option');
     };
 
     return (
@@ -29,12 +40,12 @@ export default function Home() {
                 <TouchableOpacity onPress={handlePressPokeBall} style={styles.pokeballContainer}>
                     <Image source={require('../assets/pokeBall.png')} style={styles.pokeball} />
                 </TouchableOpacity>
-                <View style={styles.loginContainer}>
+                <TouchableOpacity onPress={handlePressOption} style={styles.loginContainer}>
                     <Image source={require('../assets/user.png')} style={styles.login} />
-                </View>
-                <View style={styles.squareContainer}>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={handlePressPokeDex} style={styles.squareContainer}>
                     <Image source={require('../assets/square.jpg')} style={styles.square} />
-                </View>
+                </TouchableOpacity>
             </View>
             <TouchableOpacity style={styles.button} onPress={handlePress}>
                 <Text style={styles.text}>J'ai bu!</Text>
@@ -48,9 +59,20 @@ export default function Home() {
                 <View style={[styles.progress, { width: progressWidth }]} />
             </View>
             <Text style={styles.counter}>Nombre de clics: {count}</Text>
+
+            <Modal visible={showModal} transparent={true}>
+                <View style={styles.popup}>
+                    <Text style={styles.popupTitle}>Nouveaux Pokémon?</Text>
+                    <Text style={styles.popupText}>Et non ! <br></br>Vous n'avez pas atteint votre objectif</Text>
+                    <TouchableOpacity onPress={() => setShowModal(false)} style={styles.popupButton}>
+                        <Text style={styles.popupButtonText}>Fermer</Text>
+                    </TouchableOpacity>
+                </View>
+            </Modal>
         </View>
     );
 }
+
 
 const styles = StyleSheet.create({
     container: {
@@ -148,4 +170,43 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         backgroundColor: '#0CC0DF',
     },
+    popup: {
+        backgroundColor: '#fff',
+        borderRadius: 20,
+        padding: 20,
+        alignSelf: 'center',
+        width: '80%',
+        marginTop: '50%',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    popupTitle: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 10,
+        textAlign: 'center',
+    },
+    popupText: {
+        fontSize: 16,
+        marginBottom: 20,
+    },
+    popupButton: {
+        backgroundColor: '#0CC0DF',
+        borderRadius: 50,
+        width: 100,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    popupButtonText: {
+        color: '#fff',
+        fontSize: 16,
+    },
+
 });

@@ -24,7 +24,7 @@ export default function Option({ navigation }) {
                     </View>
                 </View>
                 <TouchableOpacity style={styles.startButton} onPress={handleClick}>
-                    <Text style={styles.inputLabel}>Demmarer</Text>
+                    <Text style={styles.inputLabel}>OK</Text>
                 </TouchableOpacity>
             </View>
         </ImageBackground>
