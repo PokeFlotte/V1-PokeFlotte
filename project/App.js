@@ -1,97 +1,27 @@
 import React from 'react';
-import backImage from "./../assets/back.png";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
-//import { useNavigation } from '@react-navigation/native';
+import { StyleSheet } from 'react-native';
+import MyPageUI from './MyPageUI';
+import WelcomePage from './WelcomePage';
 
-function handleClick(){
-  console.log("clicked")
- // navigate("Welcome"); // assuming you have a screen named "Welcome"
-}
+const Stack = createStackNavigator();
 
-export default function MyPage() {
-  return (
-    <ImageBackground source={backImage} style={styles.backgroundImage}>
-      <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <Text style={styles.inputLabel}>Comment t'appelles-tu ?</Text>
-          <TextInput style={styles.textInput} />
-        </View>
-        <View style={styles.inputContainer}>
-          <Text style={styles.inputLabel}>Quel est ton poids ?</Text>
-          <View style={styles.weightInputContainer}>
-            <TextInput style={styles.weightInput} />
-            <Text style={styles.weightUnit}>Kg</Text>
-          </View>
-        </View>
-        <TouchableOpacity style={styles.startButton} onPress={handleClick}>
-          <Text style={styles.inputLabel}>Demmarer</Text>
-        </TouchableOpacity>
-      </View>
-    </ImageBackground>
-  );
+export default function App() {
+	return (
+		<NavigationContainer>
+			<Stack.Navigator initialRouteName="MyPage">
+				<Stack.Screen name="MyPage" component={MyPageUI} options={{ title: 'My Page' }} />
+				<Stack.Screen name="WelcomePage" component={WelcomePage} options={{ title: 'Welcome' }} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 }
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  inputContainer: {
-    backgroundColor: '#C80D0D',
-    borderWidth: 2,
-    borderColor: '#C80D0D',
-    borderRadius: 10,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    marginBottom: 20,
-  },
-  inputLabel: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  textInput: {
-    backgroundColor: 'white',
-    borderColor: 'black',
-    borderWidth: 5,
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-  },
-  weightInputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  weightInput: {
-    backgroundColor: 'white',
-    borderColor: 'black',
-    borderWidth: 5,
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginRight: 10,
-  },
-  weightUnit: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  startButton: {
-    backgroundColor: '#C80D0D',
-    borderRadius: 10,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-  },
-  startButtonText: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
+	backgroundImage: {
+		flex: 1,
+		resizeMode: 'cover',
+	},
 });
