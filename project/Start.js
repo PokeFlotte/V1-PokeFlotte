@@ -14,7 +14,7 @@ export default function Start({ navigation }) {
                 <View style={styles.headerContainer}>
                     <Text style={styles.headerText}>Boire de l'eau est essentiel pour maintenir une bonne santé.
                         L'eau aide à réguler la température corporelle, à éliminer les toxines,
-                        à maintenir une peau saine et à prévenir la déshydratation.   <br></br>   <br></br>
+                        à maintenir une peau saine et à prévenir la déshydratation.<br></br><br></br>
                         Il est important de boire une quantité suffisante d'eau chaque jour,
                         et cette quantité varie en fonction du poids de chaque individu.</Text>
                 </View>

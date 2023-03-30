@@ -28,17 +28,29 @@ export default function Home({ navigation }) {
     const handlePressPokeDex = () => {
         navigation.navigate('Pokedex');
     };
-
-
     const handlePressOption = () => {
         navigation.navigate('Option');
     };
+    function isFullImg() {
+        if (count === MAX_PROGRESS) {
+            return require("../assets/pokeBallFull.png");
+        } else {
+            return require("../assets/pokeBall.png");
+        }
+    }
+    function isFullMsg() {
+        if (count === MAX_PROGRESS) {
+            return "Bravo vous avez gagner un pokémon";
+        } else {
+            return "Vous n'avez pas atteint votre objectif";
+        }
+    }
 
     return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity onPress={handlePressPokeBall} style={styles.pokeballContainer}>
-                    <Image source={require('../assets/pokeBall.png')} style={styles.pokeball} />
+                    <Image source={isFullImg()} style={styles.pokeball} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handlePressOption} style={styles.loginContainer}>
                     <Image source={require('../assets/user.png')} style={styles.login} />
@@ -63,7 +75,7 @@ export default function Home({ navigation }) {
             <Modal visible={showModal} transparent={true}>
                 <View style={styles.popup}>
                     <Text style={styles.popupTitle}>Nouveaux Pokémon?</Text>
-                    <Text style={styles.popupText}>Et non ! <br></br>Vous n'avez pas atteint votre objectif</Text>
+                    <Text style={styles.popupText}>{isFullMsg()}</Text>
                     <TouchableOpacity onPress={() => setShowModal(false)} style={styles.popupButton}>
                         <Text style={styles.popupButtonText}>Fermer</Text>
                     </TouchableOpacity>
