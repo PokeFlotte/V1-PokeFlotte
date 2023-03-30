@@ -1,4 +1,6 @@
 import React from 'react';
+import backImage from "./../assets/back.png";
+
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 //import { useNavigation } from '@react-navigation/native';
 
@@ -9,7 +11,7 @@ function handleClick(){
 
 export default function MyPage() {
   return (
-    <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
+    <ImageBackground source={backImage} style={styles.backgroundImage}>
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <Text style={styles.inputLabel}>Comment t'appelles-tu ?</Text>
