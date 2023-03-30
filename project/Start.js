@@ -3,10 +3,10 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground } 
 
 import backImage from "./../assets/back.png";
 
-export default function MyPageUI({ navigation }) {
+export default function Start({ navigation }) {
     function handleClick() {
         console.log("clicked");
-        navigation.navigate('WelcomePage');
+        navigation.navigate('Home');
     }
 
     return (

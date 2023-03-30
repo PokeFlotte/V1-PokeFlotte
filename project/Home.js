@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
-export default function WelcomePage() {
+export default function Home() {
     const [count, setCount] = useState(0);
     const [progress, setProgress] = useState(0);
     const MAX_PROGRESS = 5;
@@ -19,6 +19,17 @@ export default function WelcomePage() {
 
     return (
         <View style={styles.container}>
+            <View style={styles.header}>
+                <View style={styles.pokeballContainer}>
+                    <Image source={require('../assets/pokeBall.png')} style={styles.pokeball} />
+                </View>
+                <View style={styles.loginContainer}>
+                    <Image source={require('../assets/user.png')} style={styles.login} />
+                </View>
+                <View style={styles.squareContainer}>
+                    <Image source={require('../assets/square.jpg')} style={styles.square} />
+                </View>
+            </View>
             <TouchableOpacity style={styles.button} onPress={handlePress}>
                 <Text style={styles.text}>J'ai bu!</Text>
             </TouchableOpacity>
@@ -42,6 +53,66 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    header: {
+        backgroundColor: '#0CC0DF',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        height: '25%',
+        borderBottomLeftRadius: 50,
+        borderBottomRightRadius: 50,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: -1,
+    },
+    pokeballContainer: {
+        backgroundColor: '#fff',
+        width: 100,
+        height: 100,
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        bottom: -50,
+    },
+    pokeball: {
+        width: 80,
+        height: 80,
+    },
+    loginContainer: {
+        backgroundColor: '#fff',
+        width: 60,
+        height: 60,
+        borderRadius: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        top: 20,
+        right: 15,
+    },
+    login: {
+        width: 60,
+        height: 60,
+    },
+    squareContainer: {
+        backgroundColor: '#fff',
+        width: 60,
+        height: 60,
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        top: 20,
+        left: 15,
+    },
+    square: {
+        borderRadius: 10,
+        width: 60,
+        height: 60,
+    },
     button: {
         backgroundColor: '#0CC0DF',
         borderRadius: 50,
@@ -50,6 +121,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginBottom: 20,
+        marginTop: '50%',
     },
     text: {
         color: 'white',
