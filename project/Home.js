@@ -17,12 +17,18 @@ export default function Home() {
         }
     };
 
+    const handlePressPokeBall = () => {
+        console.log('clicked, pokeball');
+        navigation.navigate('Option');
+
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <View style={styles.pokeballContainer}>
+                <TouchableOpacity onPress={handlePressPokeBall} style={styles.pokeballContainer}>
                     <Image source={require('../assets/pokeBall.png')} style={styles.pokeball} />
-                </View>
+                </TouchableOpacity>
                 <View style={styles.loginContainer}>
                     <Image source={require('../assets/user.png')} style={styles.login} />
                 </View>

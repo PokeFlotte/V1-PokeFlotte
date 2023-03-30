@@ -3,8 +3,9 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground } 
 
 import backImage from "./../assets/back.png";
 
-export default function Start({ navigation }) {
+export default function Option({ navigation }) {
     function handleClick() {
+        console.log("clicked");
         navigation.navigate('Home');
     }
 
