@@ -8,23 +8,22 @@ import {
   StyleSheet,
   Modal,
 } from "react-native";
+import userPokemon from "./users-pokemons.json";
 import BACKGROUND_IMAGE_URL from "./../assets/back.png";
 import PokemonJson from "./Pokemon.json";
-
-for (let i = 1; i <= PokemonJson["139"].type.length; i++) {
-  console.log(PokemonJson["139"].type[i - 1]);
-}
-for (let i = 1; i <= PokemonJson["004"].type.length; i++) {
-  console.log(PokemonJson["004"].type[i - 1]);
-}
+const user = userPokemon[1];
 
 const NUM_COLUMNS = 3;
 const NUM_ROWS = 50;
 const POKEMON_IMAGES = [];
-for (let i = 1; i <= NUM_ROWS * NUM_COLUMNS; i++) {
-  POKEMON_IMAGES.push({ id: i, imageUrl: require("./../assets/square.jpg") });
+for (let i = 1; i <= (NUM_ROWS * NUM_COLUMNS) + 1; i++) {
+  if (user["pokemons"].includes(afficherId(i))) { // Si l'ID est dans le tableau des pokémons de l'utilisateur
+    const image = afficherId(i) + ".png";
+    POKEMON_IMAGES.push({ id: i, imageUrl: require(`./../assets/pokemon/${image}`) });
+  } else {
+    POKEMON_IMAGES.push({ id: i, imageUrl: require("./../assets/square.jpg") });
+  }
 }
-POKEMON_IMAGES.push({ id: 151, imageUrl: require("./../assets/square.jpg") });
 
 function afficherId(id) {
   const idStr = id.toString(); // Convertir l'ID en chaîne de caractères
@@ -138,7 +137,9 @@ export default function Pokedex() {
             </TouchableOpacity>
             <Text style={styles.popupTitle}>
               {selectedId && PokemonJson[afficherId(selectedId)]
-                ? PokemonJson[afficherId(selectedId)].name
+                ? user["pokemons"].includes(afficherId(selectedId))
+                  ? PokemonJson[afficherId(selectedId)].name
+                  : "??"
                 : ""}
             </Text>
             <Text style={styles.popupId}>
@@ -147,32 +148,37 @@ export default function Pokedex() {
           </View>
           <View style={styles.popupContent}>
             <Image
-              source={
-                selectedId &&
-                  PokemonJson[afficherId(selectedId)] &&
-                  PokemonJson[afficherId(selectedId)].image
-                  ? require(`./../assets/pokemon/${PokemonJson[afficherId(selectedId)].image
-                    }`)
+              source={selectedId && PokemonJson[afficherId(selectedId)]
+                ? user["pokemons"].includes(afficherId(selectedId))
+                  ? require(`./../assets/pokemon/${PokemonJson[afficherId(selectedId)].image}`)
                   : require("./../assets/square.jpg")
-              }
+                : ""}
               style={styles.popupImage}
               resizeMode="contain"
             />
           </View>
           <View style={styles.popupDetails}>
-            {types.map((type, index) => (
-              <View style={styles.popupDetail} key={index}>
-                <View
-                  style={[
-                    styles.circleBackground,
-                    { backgroundColor: getBackgroundColor(type) },
-                  ]}
-                >
-                  <Text style={styles.detailText}>{type}</Text>
+            {selectedId && PokemonJson[afficherId(selectedId)] && user["pokemons"].includes(afficherId(selectedId))
+              ? types.map((type, index) => (
+                <View style={styles.popupDetail} key={index}>
+                  <View
+                    style={[
+                      styles.circleBackground,
+                      { backgroundColor: getBackgroundColor(type) },
+                    ]}
+                  >
+                    <Text style={styles.detailText}>{type}</Text>
+                  </View>
                 </View>
-              </View>
-            ))}
+              ))
+              : (
+                <View style={styles.popupDetail}>
+
+                </View>
+              )
+            }
           </View>
+
         </View>
       </Modal>
     </View>
