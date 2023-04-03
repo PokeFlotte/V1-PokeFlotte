@@ -11,6 +11,7 @@ import Pokedex from './Pokedex';
 const Stack = createStackNavigator();
 
 export default function App() {
+
 	return (
 		<NavigationContainer>
 			<Stack.Navigator initialRouteName="Start">
