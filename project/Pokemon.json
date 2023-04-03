@@ -1,153 +1,1126 @@
 {
-"001": {"name":"Bulbizarre","type":["Plante","Poison"],"image":"001.png"},
-"002": {"name":"Herbizarre","type":["Plante","Poison"],"image":"002.png"},
-"003": {"name":"Florizarre","type":["Plante","Poison"],"image":"003.png"},
-"004": {"name":"Salamèche","type":["Feu"],"image":"004.png"},
-"005": {"name":"Reptincel","type":["Feu"],"image":"005.png"},
-"006": {"name":"Dracaufeu","type":["Feu","Vol"],"image":"006.png"},
-"007": {"name":"Carapuce","type":["Eau"],"image":"007.png"},
-"008": {"name":"Carabaffe","type":["Eau"],"image":"008.png"},
-"009": {"name":"Tortank","type":["Eau"],"image":"009.png"},
-"010": {"name":"Chenipan","type":["Insecte"],"image":"010.png"},
-"011": {"name":"Chrysacier","type":["Insecte"],"image":"011.png"},
-"012": {"name":"Papilusion","type":["Insecte","Vol"],"image":"012.png"},
-"013": {"name":"Aspicot","type":["Insecte","Poison"],"image":"013.png"},
-"014": {"name":"Coconfort","type":["Insecte","Poison"],"image":"014.png"},
-"015": {"name":"Dardargnan","type":["Insecte","Poison"],"image":"015.png"},
-"016": {"name":"Roucool","type":["Normal","Vol"],"image":"016.png"},
-"017": {"name":"Roucoups","type":["Normal","Vol"],"image":"017.png"},
-"018": {"name":"Roucarnage","type":["Normal","Vol"],"image":"018.png"},
-"019": {"name":"Rattata","type":["Normal"],"image":"019.png"},
-"020": {"name":"Rattatac","type":["Normal"],"image":"020.png"},
-"021": {"name":"Piafabec","type":["Normal","Vol"],"image":"021.png"},
-"022": {"name":"Rapasdepic","type":["Normal","Vol"],"image":"022.png"},
-"023": {"name":"Abo","type":["Poison"],"image":"023.png"},
-"024": {"name":"Arbok","type":["Poison"],"image":"024.png"},
-"025": {"name":"Pikachu","type":["Électrik"],"image":"025.png"},
-"026": {"name":"Raichu","type":["Électrik"],"image":"026.png"},
-"027": {"name":"Sabelette","type":["Sol"],"image":"027.png"},
-"028": {"name":"Sablaireau","type":["Sol"],"image":"028.png"},
-"029": {"name":"Nidoran♀","type":["Poison"],"image":"029.png"},
-"030": {"name":"Nidorina","type":["Poison"],"image":"030.png"},
-"031": {"name":"Nidoqueen","type":["Poison","Sol"],"image":"031.png"},
-"032": {"name":"Nidoran♂","type":["Poison"],"image":"032.png"},
-"033": {"name":"Nidorino","type":["Poison"],"image":"033.png"},
-"034": {"name":"Nidoking","type":["Poison","Sol"],"image":"034.png"},
-"035": {"name":"Mélofée","type":["Fée"],"image":"035.png"},
-"036": {"name":"Mélodelfe","type":["Fée"],"image":"036.png"},
-"037": {"name":"Goupix","type":["Feu"],"image":"037.png"},
-"038": {"name":"Feunard","type":["Feu"],"image":"038.png"},
-"039": {"name":"Rondoudou","type":["Normal","Fée"],"image":"039.png"},
-"040": {"name":"Grodoudou","type":["Normal","Fée"],"image":"040.png"},
-"041": {"name":"Nosferapti","type":["Poison","Vol"],"image":"041.png"},
-"042": {"name":"Nosferalto","type":["Poison","Vol"],"image":"042.png"},
-"043": {"name":"Mystherbe","type":["Plante","Poison"],"image":"043.png"},
-"044": {"name":"Ortide","type":["Plante","Poison"],"image":"044.png"},
-"045": {"name":"Rafflesia","type":["Plante","Poison"],"image":"045.png"},
-"046": {"name":"Paras","type":["Insecte","Plante"],"image":"046.png"},
-"047": {"name":"Parasect","type":["Insecte","Plante"],"image":"047.png"},
-"048": {"name":"Mimitoss","type":["Insecte","Poison"],"image":"048.png"},
-"049": {"name":"Aéromite","type":["Insecte","Poison"],"image":"049.png"},
-"050": {"name":"Taupiqueur","type":["Sol"],"image":"050.png"},
-"051": {"name":"Triopikeur","type":["Sol"],"image":"051.png"},
-"052": {"name":"Miaouss","type":["Normal"],"image":"052.png"},
-"053": {"name":"Persian","type":["Normal"],"image":"053.png"},
-"054": {"name":"Psykokwak","type":["Eau"],"image":"054.png"},
-"055": {"name":"Akwakwak","type":["Eau"],"image":"055.png"},
-"056": {"name":"Férosinge","type":["Combat"],"image":"056.png"},
-"057": {"name":"Colossinge","type":["Combat"],"image":"057.png"},
-"058": {"name":"Caninos","type":["Feu"],"image":"058.png"},
-"059": {"name":"Arcanin","type":["Feu"],"image":"059.png"},
-"060": {"name":"Ptitard","type":["Eau"],"image":"060.png"},
-"061": {"name":"Têtarte","type":["Eau"],"image":"061.png"},
-"062": {"name":"Tartard","type":["Eau","Combat"],"image":"062.png"},
-"063": {"name":"Abra","type":["Psy"],"image":"063.png"},
-"064": {"name":"Kadabra","type":["Psy"],"image":"064.png"},
-"065": {"name":"Alakazam","type":["Psy"],"image":"065.png"},
-"066": {"name":"Machoc","type":["Combat"],"image":"066.png"},
-"067": {"name":"Machopeur","type":["Combat"],"image":"067.png"},
-"068": {"name":"Mackogneur","type":["Combat"],"image":"068.png"},
-"069": {"name":"Chétiflor","type":["Plante","Poison"],"image":"069.png"},
-"070": {"name":"Boustiflor","type":["Plante","Poison"],"image":"070.png"},
-"071": {"name":"Empiflor","type":["Plante","Poison"],"image":"071.png"},
-"072": {"name":"Tentacool","type":["Eau","Poison"],"image":"072.png"},
-"073": {"name":"Tentacruel","type":["Eau","Poison"],"image":"073.png"},
-"074": {"name":"Racaillou","type":["Roche","Sol"],"image":"074.png"},
-"075": {"name":"Gravalanch","type":["Roche","Sol"],"image":"075.png"},
-"076": {"name":"Grolem","type":["Roche","Sol"],"image":"076.png"},
-"077": {"name":"Ponyta","type":["Feu"],"image":"077.png"},
-"078": {"name":"Galopa","type":["Feu"],"image":"078.png"},
-"079": {"name":"Ramoloss","type":["Eau","Psy"],"image":"079.png"},
-"080": {"name":"Flagadoss","type":["Eau","Psy"],"image":"080.png"},
-"081": {"name":"Magnéti","type":["Électrik","Acier"],"image":"081.png"},
-"082": {"name":"Magnéton","type":["Électrik","Acier"],"image":"082.png"},
-"083": {"name":"Canarticho","type":["Normal","Vol"],"image":"083.png"},
-"084": {"name":"Doduo","type":["Normal","Vol"],"image":"084.png"},
-"085": {"name":"Dodrio","type":["Normal","Vol"],"image":"085.png"},
-"086": {"name":"Otaria","type":["Eau"],"image":"086.png"},
-"087": {"name":"Lamantine","type":["Eau","Glace"],"image":"087.png"},
-"088": {"name":"Tadmorv","type":["Poison"],"image":"088.png"},
-"089": {"name":"Grotadmorv","type":["Poison"],"image":"089.png"},
-"090": {"name":"Kokiyas","type":["Eau"],"image":"090.png"},
-"091": {"name":"Crustabri","type":["Eau","Glace"],"image":"091.png"},
-"092": {"name":"Fantominus","type":["Spectre","Poison"],"image":"092.png"},
-"093": {"name":"Spectrum","type":["Spectre","Poison"],"image":"093.png"},
-"094": {"name":"Ectoplasma","type":["Spectre","Poison"],"image":"094.png"},
-"095": {"name":"Onix","type":["Roche","Sol"],"image":"095.png"},
-"096": {"name":"Soporifik","type":["Psy"],"image":"096.png"},
-"097": {"name":"Hypnomade","type":["Psy"],"image":"097.png"},
-"098": {"name":"Krabby","type":["Eau"],"image":"098.png"},
-"099": {"name":"Krabboss","type":["Eau"],"image":"099.png"},
-"100": {"name":"Voltorbe","type":["Électrik"],"image":"100.png"},
-"101": {"name":"Électrode","type":["Électrik"],"image":"101.png"},
-"102": {"name":"Noeunoeuf","type":["Plante","Psy"],"image":"102.png"},
-"103": {"name":"Noadkoko","type":["Plante","Psy"],"image":"103.png"},
-"104": {"name":"Osselait","type":["Sol"],"image":"104.png"},
-"105": {"name":"Ossatueur","type":["Sol"],"image":"105.png"},
-"106": {"name":"Kicklee","type":["Combat"],"image":"106.png"},
-"107": {"name":"Tygnon","type":["Combat"],"image":"107.png"},
-"108": {"name":"Excelangue","type":["Normal"],"image":"108.png"},
-"109": {"name":"Smogo","type":["Poison"],"image":"109.png"},
-"110": {"name":"Smogogo","type":["Poison"],"image":"110.png"},
-"111": {"name":"Rhinocorne","type":["Sol","Roche"],"image":"111.png"},
-"112": {"name":"Rhinoféros","type":["Sol","Roche"],"image":"112.png"},
-"113": {"name":"Leveinard","type":["Normal"],"image":"113.png"},
-"114": {"name":"Saquedeneu","type":["Plante"],"image":"114.png"},
-"115": {"name":"Kangourex","type":["Normal"],"image":"115.png"},
-"116": {"name":"Hypotrempe","type":["Eau"],"image":"116.png"},
-"117": {"name":"Hypocéan","type":["Eau"],"image":"117.png"},
-"118": {"name":"Poissirène","type":["Eau"],"image":"118.png"},
-"119": {"name":"Poissoroy","type":["Eau"],"image":"119.png"},
-"120": {"name":"Stari","type":["Eau"],"image":"120.png"},
-"121": {"name":"Staross","type":["Eau","Psy"],"image":"121.png"},
-"122": {"name":"M. Mime","type":["Psy","Fée"],"image":"122.png"},
-"123": {"name":"Insécateur","type":["Insecte","Vol"],"image":"123.png"},
-"124": {"name":"Lippoutou","type":["Glace","Psy"],"image":"124.png"},
-"125": {"name":"Élektek","type":["Électrik"],"image":"125.png"},
-"126": {"name":"Magmar","type":["Feu"],"image":"126.png"},
-"127": {"name":"Scarabrute","type":["Insecte"],"image":"127.png"},
-"128": {"name":"Tauros","type":["Normal"],"image":"128.png"},
-"129": {"name":"Magicarpe","type":["Eau"],"image":"129.png"},
-"130": {"name":"Léviator","type":["Eau","Vol"],"image":"130.png"},
-"131": {"name":"Lokhlass","type":["Eau","Glace"],"image":"131.png"},
-"132": {"name":"Métamorph","type":["Normal"],"image":"132.png"},
-"133": {"name":"Évoli","type":["Normal"],"image":"133.png"},
-"134": {"name":"Aquali","type":["Eau"],"image":"134.png"},
-"135": {"name":"Voltali","type":["Électrik"],"image":"135.png"},
-"136": {"name":"Pyroli","type":["Feu"],"image":"136.png"},
-"137": {"name":"Porygon","type":["Normal"],"image":"137.png"},
-"138": {"name":"Amonita","type":["Roche","Eau"],"image":"138.png"},
-"139": {"name":"Amonistar","type":["Roche","Eau"],"image":"139.png"},
-"140": {"name":"Kabuto","type":["Roche","Eau"],"image":"140.png"},
-"141": {"name":"Kabutops","type":["Roche","Eau"],"image":"141.png"},
-"142": {"name":"Ptéra","type":["Roche","Vol"],"image":"142.png"},
-"143": {"name":"Ronflex","type":["Normal"],"image":"143.png"},
-"144": {"name":"Artikodin","type":["Glace","Vol"],"image":"144.png"},
-"145": {"name":"Électhor","type":["Électrik","Vol"],"image":"145.png"},
-"146": {"name":"Sulfura","type":["Feu","Vol"],"image":"146.png"},
-"147": {"name":"Minidraco","type":["Dragon"],"image":"147.png"},
-"148": {"name":"Draco","type":["Dragon"],"image":"148.png"},
-"149": {"name":"Dracolosse","type":["Dragon","Vol"],"image":"149.png"},
-"150": {"name":"Mewtwo","type":["Psy"],"image":"150.png"},
-"151": {"name":"Mew","type":["Psy"],"image":"151.png"}
+    "001": {
+        "name": "Bulbizarre",
+        "type": [
+            "Plante",
+            "Poison"
+        ],
+        "image": "001.png"
+    },
+    "002": {
+        "name": "Herbizarre",
+        "type": [
+            "Plante",
+            "Poison"
+        ],
+        "image": "002.png"
+    },
+    "003": {
+        "name": "Florizarre",
+        "type": [
+            "Plante",
+            "Poison"
+        ],
+        "image": "003.png"
+    },
+    "004": {
+        "name": "Salamèche",
+        "type": [
+            "Feu"
+        ],
+        "image": "004.png"
+    },
+    "005": {
+        "name": "Reptincel",
+        "type": [
+            "Feu"
+        ],
+        "image": "005.png"
+    },
+    "006": {
+        "name": "Dracaufeu",
+        "type": [
+            "Feu",
+            "Vol"
+        ],
+        "image": "006.png"
+    },
+    "007": {
+        "name": "Carapuce",
+        "type": [
+            "Eau"
+        ],
+        "image": "007.png"
+    },
+    "008": {
+        "name": "Carabaffe",
+        "type": [
+            "Eau"
+        ],
+        "image": "008.png"
+    },
+    "009": {
+        "name": "Tortank",
+        "type": [
+            "Eau"
+        ],
+        "image": "009.png"
+    },
+    "010": {
+        "name": "Chenipan",
+        "type": [
+            "Insecte"
+        ],
+        "image": "010.png"
+    },
+    "011": {
+        "name": "Chrysacier",
+        "type": [
+            "Insecte"
+        ],
+        "image": "011.png"
+    },
+    "012": {
+        "name": "Papilusion",
+        "type": [
+            "Insecte",
+            "Vol"
+        ],
+        "image": "012.png"
+    },
+    "013": {
+        "name": "Aspicot",
+        "type": [
+            "Insecte",
+            "Poison"
+        ],
+        "image": "013.png"
+    },
+    "014": {
+        "name": "Coconfort",
+        "type": [
+            "Insecte",
+            "Poison"
+        ],
+        "image": "014.png"
+    },
+    "015": {
+        "name": "Dardargnan",
+        "type": [
+            "Insecte",
+            "Poison"
+        ],
+        "image": "015.png"
+    },
+    "016": {
+        "name": "Roucool",
+        "type": [
+            "Normal",
+            "Vol"
+        ],
+        "image": "016.png"
+    },
+    "017": {
+        "name": "Roucoups",
+        "type": [
+            "Normal",
+            "Vol"
+        ],
+        "image": "017.png"
+    },
+    "018": {
+        "name": "Roucarnage",
+        "type": [
+            "Normal",
+            "Vol"
+        ],
+        "image": "018.png"
+    },
+    "019": {
+        "name": "Rattata",
+        "type": [
+            "Normal"
+        ],
+        "image": "019.png"
+    },
+    "020": {
+        "name": "Rattatac",
+        "type": [
+            "Normal"
+        ],
+        "image": "020.png"
+    },
+    "021": {
+        "name": "Piafabec",
+        "type": [
+            "Normal",
+            "Vol"
+        ],
+        "image": "021.png"
+    },
+    "022": {
+        "name": "Rapasdepic",
+        "type": [
+            "Normal",
+            "Vol"
+        ],
+        "image": "022.png"
+    },
+    "023": {
+        "name": "Abo",
+        "type": [
+            "Poison"
+        ],
+        "image": "023.png"
+    },
+    "024": {
+        "name": "Arbok",
+        "type": [
+            "Poison"
+        ],
+        "image": "024.png"
+    },
+    "025": {
+        "name": "Pikachu",
+        "type": [
+            "Électrik"
+        ],
+        "image": "025.png"
+    },
+    "026": {
+        "name": "Raichu",
+        "type": [
+            "Électrik"
+        ],
+        "image": "026.png"
+    },
+    "027": {
+        "name": "Sabelette",
+        "type": [
+            "Sol"
+        ],
+        "image": "027.png"
+    },
+    "028": {
+        "name": "Sablaireau",
+        "type": [
+            "Sol"
+        ],
+        "image": "028.png"
+    },
+    "029": {
+        "name": "Nidoran♀",
+        "type": [
+            "Poison"
+        ],
+        "image": "029.png"
+    },
+    "030": {
+        "name": "Nidorina",
+        "type": [
+            "Poison"
+        ],
+        "image": "030.png"
+    },
+    "031": {
+        "name": "Nidoqueen",
+        "type": [
+            "Poison",
+            "Sol"
+        ],
+        "image": "031.png"
+    },
+    "032": {
+        "name": "Nidoran♂",
+        "type": [
+            "Poison"
+        ],
+        "image": "032.png"
+    },
+    "033": {
+        "name": "Nidorino",
+        "type": [
+            "Poison"
+        ],
+        "image": "033.png"
+    },
+    "034": {
+        "name": "Nidoking",
+        "type": [
+            "Poison",
+            "Sol"
+        ],
+        "image": "034.png"
+    },
+    "035": {
+        "name": "Mélofée",
+        "type": [
+            "Fée"
+        ],
+        "image": "035.png"
+    },
+    "036": {
+        "name": "Mélodelfe",
+        "type": [
+            "Fée"
+        ],
+        "image": "036.png"
+    },
+    "037": {
+        "name": "Goupix",
+        "type": [
+            "Feu"
+        ],
+        "image": "037.png"
+    },
+    "038": {
+        "name": "Feunard",
+        "type": [
+            "Feu"
+        ],
+        "image": "038.png"
+    },
+    "039": {
+        "name": "Rondoudou",
+        "type": [
+            "Normal",
+            "Fée"
+        ],
+        "image": "039.png"
+    },
+    "040": {
+        "name": "Grodoudou",
+        "type": [
+            "Normal",
+            "Fée"
+        ],
+        "image": "040.png"
+    },
+    "041": {
+        "name": "Nosferapti",
+        "type": [
+            "Poison",
+            "Vol"
+        ],
+        "image": "041.png"
+    },
+    "042": {
+        "name": "Nosferalto",
+        "type": [
+            "Poison",
+            "Vol"
+        ],
+        "image": "042.png"
+    },
+    "043": {
+        "name": "Mystherbe",
+        "type": [
+            "Plante",
+            "Poison"
+        ],
+        "image": "043.png"
+    },
+    "044": {
+        "name": "Ortide",
+        "type": [
+            "Plante",
+            "Poison"
+        ],
+        "image": "044.png"
+    },
+    "045": {
+        "name": "Rafflesia",
+        "type": [
+            "Plante",
+            "Poison"
+        ],
+        "image": "045.png"
+    },
+    "046": {
+        "name": "Paras",
+        "type": [
+            "Insecte",
+            "Plante"
+        ],
+        "image": "046.png"
+    },
+    "047": {
+        "name": "Parasect",
+        "type": [
+            "Insecte",
+            "Plante"
+        ],
+        "image": "047.png"
+    },
+    "048": {
+        "name": "Mimitoss",
+        "type": [
+            "Insecte",
+            "Poison"
+        ],
+        "image": "048.png"
+    },
+    "049": {
+        "name": "Aéromite",
+        "type": [
+            "Insecte",
+            "Poison"
+        ],
+        "image": "049.png"
+    },
+    "050": {
+        "name": "Taupiqueur",
+        "type": [
+            "Sol"
+        ],
+        "image": "050.png"
+    },
+    "051": {
+        "name": "Triopikeur",
+        "type": [
+            "Sol"
+        ],
+        "image": "051.png"
+    },
+    "052": {
+        "name": "Miaouss",
+        "type": [
+            "Normal"
+        ],
+        "image": "052.png"
+    },
+    "053": {
+        "name": "Persian",
+        "type": [
+            "Normal"
+        ],
+        "image": "053.png"
+    },
+    "054": {
+        "name": "Psykokwak",
+        "type": [
+            "Eau"
+        ],
+        "image": "054.png"
+    },
+    "055": {
+        "name": "Akwakwak",
+        "type": [
+            "Eau"
+        ],
+        "image": "055.png"
+    },
+    "056": {
+        "name": "Férosinge",
+        "type": [
+            "Combat"
+        ],
+        "image": "056.png"
+    },
+    "057": {
+        "name": "Colossinge",
+        "type": [
+            "Combat"
+        ],
+        "image": "057.png"
+    },
+    "058": {
+        "name": "Caninos",
+        "type": [
+            "Feu"
+        ],
+        "image": "058.png"
+    },
+    "059": {
+        "name": "Arcanin",
+        "type": [
+            "Feu"
+        ],
+        "image": "059.png"
+    },
+    "060": {
+        "name": "Ptitard",
+        "type": [
+            "Eau"
+        ],
+        "image": "060.png"
+    },
+    "061": {
+        "name": "Têtarte",
+        "type": [
+            "Eau"
+        ],
+        "image": "061.png"
+    },
+    "062": {
+        "name": "Tartard",
+        "type": [
+            "Eau",
+            "Combat"
+        ],
+        "image": "062.png"
+    },
+    "063": {
+        "name": "Abra",
+        "type": [
+            "Psy"
+        ],
+        "image": "063.png"
+    },
+    "064": {
+        "name": "Kadabra",
+        "type": [
+            "Psy"
+        ],
+        "image": "064.png"
+    },
+    "065": {
+        "name": "Alakazam",
+        "type": [
+            "Psy"
+        ],
+        "image": "065.png"
+    },
+    "066": {
+        "name": "Machoc",
+        "type": [
+            "Combat"
+        ],
+        "image": "066.png"
+    },
+    "067": {
+        "name": "Machopeur",
+        "type": [
+            "Combat"
+        ],
+        "image": "067.png"
+    },
+    "068": {
+        "name": "Mackogneur",
+        "type": [
+            "Combat"
+        ],
+        "image": "068.png"
+    },
+    "069": {
+        "name": "Chétiflor",
+        "type": [
+            "Plante",
+            "Poison"
+        ],
+        "image": "069.png"
+    },
+    "070": {
+        "name": "Boustiflor",
+        "type": [
+            "Plante",
+            "Poison"
+        ],
+        "image": "070.png"
+    },
+    "071": {
+        "name": "Empiflor",
+        "type": [
+            "Plante",
+            "Poison"
+        ],
+        "image": "071.png"
+    },
+    "072": {
+        "name": "Tentacool",
+        "type": [
+            "Eau",
+            "Poison"
+        ],
+        "image": "072.png"
+    },
+    "073": {
+        "name": "Tentacruel",
+        "type": [
+            "Eau",
+            "Poison"
+        ],
+        "image": "073.png"
+    },
+    "074": {
+        "name": "Racaillou",
+        "type": [
+            "Roche",
+            "Sol"
+        ],
+        "image": "074.png"
+    },
+    "075": {
+        "name": "Gravalanch",
+        "type": [
+            "Roche",
+            "Sol"
+        ],
+        "image": "075.png"
+    },
+    "076": {
+        "name": "Grolem",
+        "type": [
+            "Roche",
+            "Sol"
+        ],
+        "image": "076.png"
+    },
+    "077": {
+        "name": "Ponyta",
+        "type": [
+            "Feu"
+        ],
+        "image": "077.png"
+    },
+    "078": {
+        "name": "Galopa",
+        "type": [
+            "Feu"
+        ],
+        "image": "078.png"
+    },
+    "079": {
+        "name": "Ramoloss",
+        "type": [
+            "Eau",
+            "Psy"
+        ],
+        "image": "079.png"
+    },
+    "080": {
+        "name": "Flagadoss",
+        "type": [
+            "Eau",
+            "Psy"
+        ],
+        "image": "080.png"
+    },
+    "081": {
+        "name": "Magnéti",
+        "type": [
+            "Électrik",
+            "Acier"
+        ],
+        "image": "081.png"
+    },
+    "082": {
+        "name": "Magnéton",
+        "type": [
+            "Électrik",
+            "Acier"
+        ],
+        "image": "082.png"
+    },
+    "083": {
+        "name": "Canarticho",
+        "type": [
+            "Normal",
+            "Vol"
+        ],
+        "image": "083.png"
+    },
+    "084": {
+        "name": "Doduo",
+        "type": [
+            "Normal",
+            "Vol"
+        ],
+        "image": "084.png"
+    },
+    "085": {
+        "name": "Dodrio",
+        "type": [
+            "Normal",
+            "Vol"
+        ],
+        "image": "085.png"
+    },
+    "086": {
+        "name": "Otaria",
+        "type": [
+            "Eau"
+        ],
+        "image": "086.png"
+    },
+    "087": {
+        "name": "Lamantine",
+        "type": [
+            "Eau",
+            "Glace"
+        ],
+        "image": "087.png"
+    },
+    "088": {
+        "name": "Tadmorv",
+        "type": [
+            "Poison"
+        ],
+        "image": "088.png"
+    },
+    "089": {
+        "name": "Grotadmorv",
+        "type": [
+            "Poison"
+        ],
+        "image": "089.png"
+    },
+    "090": {
+        "name": "Kokiyas",
+        "type": [
+            "Eau"
+        ],
+        "image": "090.png"
+    },
+    "091": {
+        "name": "Crustabri",
+        "type": [
+            "Eau",
+            "Glace"
+        ],
+        "image": "091.png"
+    },
+    "092": {
+        "name": "Fantominus",
+        "type": [
+            "Spectre",
+            "Poison"
+        ],
+        "image": "092.png"
+    },
+    "093": {
+        "name": "Spectrum",
+        "type": [
+            "Spectre",
+            "Poison"
+        ],
+        "image": "093.png"
+    },
+    "094": {
+        "name": "Ectoplasma",
+        "type": [
+            "Spectre",
+            "Poison"
+        ],
+        "image": "094.png"
+    },
+    "095": {
+        "name": "Onix",
+        "type": [
+            "Roche",
+            "Sol"
+        ],
+        "image": "095.png"
+    },
+    "096": {
+        "name": "Soporifik",
+        "type": [
+            "Psy"
+        ],
+        "image": "096.png"
+    },
+    "097": {
+        "name": "Hypnomade",
+        "type": [
+            "Psy"
+        ],
+        "image": "097.png"
+    },
+    "098": {
+        "name": "Krabby",
+        "type": [
+            "Eau"
+        ],
+        "image": "098.png"
+    },
+    "099": {
+        "name": "Krabboss",
+        "type": [
+            "Eau"
+        ],
+        "image": "099.png"
+    },
+    "100": {
+        "name": "Voltorbe",
+        "type": [
+            "Électrik"
+        ],
+        "image": "100.png"
+    },
+    "101": {
+        "name": "Électrode",
+        "type": [
+            "Électrik"
+        ],
+        "image": "101.png"
+    },
+    "102": {
+        "name": "Noeunoeuf",
+        "type": [
+            "Plante",
+            "Psy"
+        ],
+        "image": "102.png"
+    },
+    "103": {
+        "name": "Noadkoko",
+        "type": [
+            "Plante",
+            "Psy"
+        ],
+        "image": "103.png"
+    },
+    "104": {
+        "name": "Osselait",
+        "type": [
+            "Sol"
+        ],
+        "image": "104.png"
+    },
+    "105": {
+        "name": "Ossatueur",
+        "type": [
+            "Sol"
+        ],
+        "image": "105.png"
+    },
+    "106": {
+        "name": "Kicklee",
+        "type": [
+            "Combat"
+        ],
+        "image": "106.png"
+    },
+    "107": {
+        "name": "Tygnon",
+        "type": [
+            "Combat"
+        ],
+        "image": "107.png"
+    },
+    "108": {
+        "name": "Excelangue",
+        "type": [
+            "Normal"
+        ],
+        "image": "108.png"
+    },
+    "109": {
+        "name": "Smogo",
+        "type": [
+            "Poison"
+        ],
+        "image": "109.png"
+    },
+    "110": {
+        "name": "Smogogo",
+        "type": [
+            "Poison"
+        ],
+        "image": "110.png"
+    },
+    "111": {
+        "name": "Rhinocorne",
+        "type": [
+            "Sol",
+            "Roche"
+        ],
+        "image": "111.png"
+    },
+    "112": {
+        "name": "Rhinoféros",
+        "type": [
+            "Sol",
+            "Roche"
+        ],
+        "image": "112.png"
+    },
+    "113": {
+        "name": "Leveinard",
+        "type": [
+            "Normal"
+        ],
+        "image": "113.png"
+    },
+    "114": {
+        "name": "Saquedeneu",
+        "type": [
+            "Plante"
+        ],
+        "image": "114.png"
+    },
+    "115": {
+        "name": "Kangourex",
+        "type": [
+            "Normal"
+        ],
+        "image": "115.png"
+    },
+    "116": {
+        "name": "Hypotrempe",
+        "type": [
+            "Eau"
+        ],
+        "image": "116.png"
+    },
+    "117": {
+        "name": "Hypocéan",
+        "type": [
+            "Eau"
+        ],
+        "image": "117.png"
+    },
+    "118": {
+        "name": "Poissirène",
+        "type": [
+            "Eau"
+        ],
+        "image": "118.png"
+    },
+    "119": {
+        "name": "Poissoroy",
+        "type": [
+            "Eau"
+        ],
+        "image": "119.png"
+    },
+    "120": {
+        "name": "Stari",
+        "type": [
+            "Eau"
+        ],
+        "image": "120.png"
+    },
+    "121": {
+        "name": "Staross",
+        "type": [
+            "Eau",
+            "Psy"
+        ],
+        "image": "121.png"
+    },
+    "122": {
+        "name": "M. Mime",
+        "type": [
+            "Psy",
+            "Fée"
+        ],
+        "image": "122.png"
+    },
+    "123": {
+        "name": "Insécateur",
+        "type": [
+            "Insecte",
+            "Vol"
+        ],
+        "image": "123.png"
+    },
+    "124": {
+        "name": "Lippoutou",
+        "type": [
+            "Glace",
+            "Psy"
+        ],
+        "image": "124.png"
+    },
+    "125": {
+        "name": "Élektek",
+        "type": [
+            "Électrik"
+        ],
+        "image": "125.png"
+    },
+    "126": {
+        "name": "Magmar",
+        "type": [
+            "Feu"
+        ],
+        "image": "126.png"
+    },
+    "127": {
+        "name": "Scarabrute",
+        "type": [
+            "Insecte"
+        ],
+        "image": "127.png"
+    },
+    "128": {
+        "name": "Tauros",
+        "type": [
+            "Normal"
+        ],
+        "image": "128.png"
+    },
+    "129": {
+        "name": "Magicarpe",
+        "type": [
+            "Eau"
+        ],
+        "image": "129.png"
+    },
+    "130": {
+        "name": "Léviator",
+        "type": [
+            "Eau",
+            "Vol"
+        ],
+        "image": "130.png"
+    },
+    "131": {
+        "name": "Lokhlass",
+        "type": [
+            "Eau",
+            "Glace"
+        ],
+        "image": "131.png"
+    },
+    "132": {
+        "name": "Métamorph",
+        "type": [
+            "Normal"
+        ],
+        "image": "132.png"
+    },
+    "133": {
+        "name": "Évoli",
+        "type": [
+            "Normal"
+        ],
+        "image": "133.png"
+    },
+    "134": {
+        "name": "Aquali",
+        "type": [
+            "Eau"
+        ],
+        "image": "134.png"
+    },
+    "135": {
+        "name": "Voltali",
+        "type": [
+            "Électrik"
+        ],
+        "image": "135.png"
+    },
+    "136": {
+        "name": "Pyroli",
+        "type": [
+            "Feu"
+        ],
+        "image": "136.png"
+    },
+    "137": {
+        "name": "Porygon",
+        "type": [
+            "Normal"
+        ],
+        "image": "137.png"
+    },
+    "138": {
+        "name": "Amonita",
+        "type": [
+            "Roche",
+            "Eau"
+        ],
+        "image": "138.png"
+    },
+    "139": {
+        "name": "Amonistar",
+        "type": [
+            "Roche",
+            "Eau"
+        ],
+        "image": "139.png"
+    },
+    "140": {
+        "name": "Kabuto",
+        "type": [
+            "Roche",
+            "Eau"
+        ],
+        "image": "140.png"
+    },
+    "141": {
+        "name": "Kabutops",
+        "type": [
+            "Roche",
+            "Eau"
+        ],
+        "image": "141.png"
+    },
+    "142": {
+        "name": "Ptéra",
+        "type": [
+            "Roche",
+            "Vol"
+        ],
+        "image": "142.png"
+    },
+    "143": {
+        "name": "Ronflex",
+        "type": [
+            "Normal"
+        ],
+        "image": "143.png"
+    },
+    "144": {
+        "name": "Artikodin",
+        "type": [
+            "Glace",
+            "Vol"
+        ],
+        "image": "144.png"
+    },
+    "145": {
+        "name": "Électhor",
+        "type": [
+            "Électrik",
+            "Vol"
+        ],
+        "image": "145.png"
+    },
+    "146": {
+        "name": "Sulfura",
+        "type": [
+            "Feu",
+            "Vol"
+        ],
+        "image": "146.png"
+    },
+    "147": {
+        "name": "Minidraco",
+        "type": [
+            "Dragon"
+        ],
+        "image": "147.png"
+    },
+    "148": {
+        "name": "Draco",
+        "type": [
+            "Dragon"
+        ],
+        "image": "148.png"
+    },
+    "149": {
+        "name": "Dracolosse",
+        "type": [
+            "Dragon",
+            "Vol"
+        ],
+        "image": "149.png"
+    },
+    "150": {
+        "name": "Mewtwo",
+        "type": [
+            "Psy"
+        ],
+        "image": "150.png"
+    },
+    "151": {
+        "name": "Mew",
+        "type": [
+            "Psy"
+        ],
+        "image": "151.png"
+    }
 }
