@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Modal } from 'react-native';
 import users from "./users.json";
-import fs from 'react-native-fs';
 const user = users[1];
 
 export default function Home({ navigation }) {
@@ -11,24 +10,17 @@ export default function Home({ navigation }) {
     const [progressWidth, setProgressWidth] = useState((100*user.nbVerres)/MAX_PROGRESS + '%');
     const [showModal, setShowModal] = useState(false);
 
-
-    const handlePress = async () => {
-        if (count < MAX_PROGRESS) {
-            const updatedUser = {
-                ...user,
-                nbVerres: user.nbVerres + 1
-            };
-            const updatedUsers = users.map(u => {
-                if (u.id === updatedUser.id) {
-                    return updatedUser;
-                } else {
-                    return u;
-                }
-            });
-            await fs.writeFile('./users.json', JSON.stringify(updatedUsers), 'utf8');
-            setCount(count + 1);
-            setProgressWidth(`${((count + 1) / MAX_PROGRESS) * 100}%`);
-        }
+    const handlePress = () => {
+    console.log(count, MAX_PROGRESS)
+    if (count < MAX_PROGRESS) {
+        setCount(count + 1);
+        user.nbVerres = user.nbVerres + 1;
+        const newProgress = user.nbVerres;
+        setProgress(newProgress);
+        const width = `${(newProgress / MAX_PROGRESS) * 100}%`;
+        setProgressWidth(width);
+        //forceUpdate();
+    }
     };
 
     const showPopup = () => {
