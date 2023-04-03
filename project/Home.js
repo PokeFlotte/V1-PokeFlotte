@@ -1,20 +1,33 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Modal } from 'react-native';
+import users from "./users.json";
+import fs from 'react-native-fs';
+const user = users[1];
 
 export default function Home({ navigation }) {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(user.nbVerres); 
     const [progress, setProgress] = useState(0);
-    const MAX_PROGRESS = 5;
-    const [progressWidth, setProgressWidth] = useState('0%');
+    const MAX_PROGRESS = user.objectif;
+    const [progressWidth, setProgressWidth] = useState((100*user.nbVerres)/MAX_PROGRESS + '%');
     const [showModal, setShowModal] = useState(false);
 
-    const handlePress = () => {
+
+    const handlePress = async () => {
         if (count < MAX_PROGRESS) {
+            const updatedUser = {
+                ...user,
+                nbVerres: user.nbVerres + 1
+            };
+            const updatedUsers = users.map(u => {
+                if (u.id === updatedUser.id) {
+                    return updatedUser;
+                } else {
+                    return u;
+                }
+            });
+            await fs.writeFile('./users.json', JSON.stringify(updatedUsers), 'utf8');
             setCount(count + 1);
-            const newProgress = progress + 1;
-            setProgress(newProgress);
-            const width = `${(newProgress / MAX_PROGRESS) * 100}%`;
-            setProgressWidth(width);
+            setProgressWidth(`${((count + 1) / MAX_PROGRESS) * 100}%`);
         }
     };
 
@@ -39,11 +52,11 @@ export default function Home({ navigation }) {
         }
     }
     function isFullMsg() {
-        if (count === MAX_PROGRESS) {
-            return "Bravo vous avez gagné un pokémon";
-        } else {
-            return "Vous n'avez pas atteint votre objectif";
-        }
+    if (user.nbVerres >= user.objectif) {
+        return `Bravo vous avez gagné un pokémon. Vous avez bu ${user.nbVerres} verres.`;
+    } else {
+        return `Vous n'avez pas atteint votre objectif. Vous avez bu ${user.nbVerres} verres.`;
+    }
     }
 
     return (
@@ -70,7 +83,7 @@ export default function Home({ navigation }) {
             <View style={styles.progressContainer}>
                 <View style={[styles.progress, { width: progressWidth }]} />
             </View>
-            <Text style={styles.counter}>Nombre de clics: {count}</Text>
+            <Text style={styles.counter}>Nombre de verres bus : {user.nbVerres}</Text>
 
             <Modal visible={showModal} transparent={true}>
                 <View style={styles.popup}>
