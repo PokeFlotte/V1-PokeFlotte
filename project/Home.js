@@ -74,7 +74,7 @@ export default function Home({ navigation }) {
 
             <Modal visible={showModal} transparent={true}>
                 <View style={styles.popup}>
-                    <Text style={styles.popupTitle}>Nouveaux Pokémon?</Text>
+                    <Text style={styles.popupTitle}>Nouveau Pokémon ?</Text>
                     <Text style={styles.popupText}>{isFullMsg()}</Text>
                     <TouchableOpacity onPress={() => setShowModal(false)} style={styles.popupButton}>
                         <Text style={styles.popupButtonText}>Fermer</Text>
