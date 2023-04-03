@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { ImageBackground, View, TouchableOpacity, Image, Text, StyleSheet, Modal } from 'react-native';
 import BACKGROUND_IMAGE_URL from './../assets/back.png';
+import PokemonJson from './Pokemon.json';
+
+console.log(PokemonJson["001"].name); // Affiche "Bulbizarre"
+console.log(PokemonJson["002"].image); // Affiche "002.png"
+
 
 const NUM_COLUMNS = 3;
 const NUM_ROWS = 50;
@@ -55,11 +60,13 @@ export default function Pokedex() {
             <TouchableOpacity onPress={() => setShowModal(false)} style={styles.popupCloseButton}>
               <Text style={styles.popupCloseButtonText}>X</Text>
             </TouchableOpacity>
-            <Text style={styles.popupTitle}>Bulbizarre</Text>
+            <Text style={styles.popupTitle}>{selectedId && PokemonJson[afficherId(selectedId)] ? PokemonJson[afficherId(selectedId)].name : ''}</Text>
             <Text style={styles.popupId}>#{selectedId ? afficherId(selectedId) : ''}</Text>
-          </View>
+            
+
+        </View>
           <View style={styles.popupContent}>
-            <Image source={require('./../assets/square.jpg')} style={styles.popupImage} resizeMode='contain' />
+            <Image source={selectedId && PokemonJson[afficherId(selectedId)] && PokemonJson[afficherId(selectedId)].image ? require(`./../assets/pokemon/${PokemonJson[afficherId(selectedId)].image}`) : require('./../assets/square.jpg')} style={styles.popupImage} resizeMode='contain' />
           </View>
           <View style={styles.popupDetails}>
             <View style={styles.popupDetail}>
