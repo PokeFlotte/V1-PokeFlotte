@@ -40,7 +40,7 @@ export default function Home({ navigation }) {
     }
     function isFullMsg() {
         if (count === MAX_PROGRESS) {
-            return "Bravo vous avez gagner un pokémon";
+            return "Bravo vous avez gagné un pokémon";
         } else {
             return "Vous n'avez pas atteint votre objectif";
         }
