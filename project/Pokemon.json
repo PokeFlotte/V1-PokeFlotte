@@ -1,0 +1,12 @@
+{
+  "#001": {
+    "name": "Bulbizarre",
+    "type": ["Plante", "Eau"],
+    "image": "001.png"
+  },
+  "#002": {
+    "name": "",
+    "type": [""],
+    "image": "002.png"
+  }
+}
