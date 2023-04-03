@@ -60,7 +60,7 @@ export default function Home({ navigation }) {
                 </TouchableOpacity>
             </View>
             <TouchableOpacity style={styles.button} onPress={handlePress}>
-                <Text style={styles.text}>J'ai bu!</Text>
+                <Text style={styles.text}>J'ai bu !</Text>
             </TouchableOpacity>
             {count === MAX_PROGRESS ? (
                 <Text style={styles.counter}>Félicitations, vous avez atteint votre objectif journalier. Vous avez bu {MAX_PROGRESS} verres.</Text>
