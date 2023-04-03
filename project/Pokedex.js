@@ -149,10 +149,9 @@ export default function Pokedex() {
             <Image
               source={
                 selectedId &&
-                PokemonJson[afficherId(selectedId)] &&
-                PokemonJson[afficherId(selectedId)].image
-                  ? require(`./../assets/pokemon/${
-                      PokemonJson[afficherId(selectedId)].image
+                  PokemonJson[afficherId(selectedId)] &&
+                  PokemonJson[afficherId(selectedId)].image
+                  ? require(`./../assets/pokemon/${PokemonJson[afficherId(selectedId)].image
                     }`)
                   : require("./../assets/square.jpg")
               }
