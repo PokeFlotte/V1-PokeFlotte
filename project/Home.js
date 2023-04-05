@@ -72,7 +72,7 @@ const deleteAllDataFromLocalStorage = (key) => {
 };
 
 
-const myData1 = {
+const myDataFull = {
     "1": {
         "pokemons": [
             "006",
@@ -224,7 +224,14 @@ const myData1 = {
         ]
     }
 };
-
+const myData1 = {
+    "1": {
+        "pokemons": [
+            "006",
+            "151",
+        ]
+    }
+};
 const myData2 = {
     "1": {
         "pseudo": "Adri-Liotte",
