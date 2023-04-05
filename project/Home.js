@@ -1,62 +1,149 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Modal } from 'react-native';
 import users from "./users.json";
-import userPokemon from "./users-pokemons.json";
+import userPokemonJson from "./users-pokemons.json";
 import Pokemon from "./Pokemon.json";
-//import RNFS from 'react-native-fs';
-import { Platform } from 'react-native';
-import * as FileSystem from 'expo-file-system';
-import { saveAs } from 'file-saver';
 
-
-const writeJsonFile = async (fileName, data) => {
+const saveDataToLocalStorage = (key, newData) => {
     try {
-        const jsonString = JSON.stringify(data);
+        // Charger les données existantes du LocalStorage
+        const jsonString = localStorage.getItem(key);
+        let existingData = {};
 
-        if (Platform.OS === 'web') {
-            // Utilisez la bibliothèque file-saver pour écrire des fichiers sur le web
-            const blob = new Blob([jsonString], { type: 'application/json' });
-            saveAs(blob, `${fileName}.json`);
-            console.log('Fichier JSON écrit avec succès sur le web');
-        } else {
-            // Utilisez expo-file-system pour écrire des fichiers sur iOS et Android
-            const folderPath = `${FileSystem.documentDirectory}myFolder`;
-            const { exists } = await FileSystem.getInfoAsync(folderPath);
-            if (!exists) {
-                await FileSystem.makeDirectoryAsync(folderPath);
-            }
-
-            const filePath = `${folderPath}/${fileName}.json`;
-            await FileSystem.writeAsStringAsync(filePath, jsonString);
-            console.log('Fichier JSON écrit avec succès sur iOS/Android');
+        if (jsonString) {
+            existingData = JSON.parse(jsonString);
         }
+
+        // Fusionner les objets existants et les nouveaux objets
+        const mergedData = { ...existingData, ...newData };
+
+        // Enregistrer les données fusionnées dans le LocalStorage
+        const mergedJsonString = JSON.stringify(mergedData);
+        localStorage.setItem(key, mergedJsonString);
+
+        console.log('Données enregistrées dans le LocalStorage avec succès');
     } catch (error) {
-        console.error('Erreur lors de l\'écriture du fichier JSON:', error);
+        console.error('Erreur lors de l\'enregistrement des données dans le LocalStorage :', error);
     }
 };
 
 
+const loadDataFromLocalStorage = (key) => {
+    try {
+        const jsonString = localStorage.getItem(key);
+        if (jsonString) {
+            const data = JSON.parse(jsonString);
+            //console.log('Données chargées du LocalStorage avec succès :', data);
+            return data;
+        } else {
+            //console.log('Aucune donnée trouvée pour cette clé dans le LocalStorage');
+            return null;
+        }
+    } catch (error) {
+        console.error('Erreur lors de la lecture des données du LocalStorage :', error);
+        return null;
+    }
+};
+const deleteDataFromLocalStorage = (key, userId) => {
+    try {
+        // Charger les données existantes du LocalStorage
+        const jsonString = localStorage.getItem(key);
+        if (jsonString) {
+            const data = JSON.parse(jsonString);
 
-const myData = {
-    key1: 'value1',
-    key2: 'value2',
+            // Supprimer les données de l'utilisateur spécifié
+            if (data.hasOwnProperty(userId)) {
+                delete data[userId];
+
+                // Enregistrer les données mises à jour dans le LocalStorage
+                const updatedJsonString = JSON.stringify(data);
+                localStorage.setItem(key, updatedJsonString);
+
+                console.log(`Données de l'utilisateur ${userId} supprimées avec succès du LocalStorage`);
+            } else {
+                console.log(`Aucune donnée trouvée pour l'utilisateur ${userId} dans le LocalStorage`);
+            }
+        } else {
+            console.log('Aucune donnée trouvée pour cette clé dans le LocalStorage');
+        }
+    } catch (error) {
+        console.error('Erreur lors de la suppression des données du LocalStorage :', error);
+    }
+};
+const deleteAllDataFromLocalStorage = (key) => {
+    try {
+        localStorage.removeItem(key);
+        console.log('Toutes les données supprimées avec succès du LocalStorage pour cette clé');
+    } catch (error) {
+        console.error('Erreur lors de la suppression de toutes les données du LocalStorage pour cette clé :', error);
+    }
 };
 
-writeJsonFile('users', myData);
+
+const myData1 = {
+    "1": {
+        "pokemons": [
+            "001",
+            "002",
+            "015",
+            "150",
+            "151"
+        ]
+    }
+};
+
+const myData2 = {
+    "1": {
+        "pseudo": "Adri-Liotte",
+        "objectif": 10,
+        "nbVerres": 6
+    }
+};
+
+//ajouter dans le local storage
+//saveDataToLocalStorage('users', myData2);
+//saveDataToLocalStorage('usersPokemon', myData1);
+
+// Supprimer les données de l'utilisateur "2"
+//deleteDataFromLocalStorage('users', '2');
+
+// Supprimer toutes les données associées à la clé 'users'
+//deleteAllDataFromLocalStorage('users');
+
+// Charger les données de l'utilisateur "3" depuis le LocalStorage
+const usersFromLocalStorage = loadDataFromLocalStorage('users');
+console.log(usersFromLocalStorage, 'usersFromLocalStorage')
+const usersPokemonFromLocalStorage = loadDataFromLocalStorage('usersPokemon');
+console.log(usersPokemonFromLocalStorage, 'usersPokemonFromLocalStorage')
 
 
+const user = usersFromLocalStorage[1];
+const userPokemon = usersPokemonFromLocalStorage[1];
 
-const user = users[1];
+
+const capturePokemon = (id) => {
+    const userIndex = usersPokemon.findIndex(user => user.id === 1); // trouver l'utilisateur actuel (dans cet exemple, l'utilisateur a l'ID 1)
+    if (userIndex >= 0) {
+        const user = usersPokemon[userIndex];
+        if (!user.pokemons.includes(id)) {
+            const updatedUser = { ...user, pokemons: [...user.pokemons, id] }; // ajouter le nouvel ID dans le tableau "pokemons"
+            const updatedUsers = [...usersPokemon];
+            updatedUsers[userIndex] = updatedUser;
+            saveDataToLocalStorage('usersPokemon', updatedUsers); // enregistrer les modifications dans le localStorage
+        }
+    }
+};
+
 
 export default function Home({ navigation }) {
 
-
-
+    const [isFullMsgCalled, setIsFullMsgCalled] = useState(false);
     const [count, setCount] = useState(user.nbVerres);
     const [progress, setProgress] = useState(0);
     const MAX_PROGRESS = user.objectif;
     const [progressWidth, setProgressWidth] = useState((100 * user.nbVerres) / MAX_PROGRESS + '%');
     const [showModal, setShowModal] = useState(false);
+    var pokemonChoisi;
 
     const handlePress = () => {
         if (count < MAX_PROGRESS) {
@@ -100,6 +187,30 @@ export default function Home({ navigation }) {
         return idStr;
     }
 
+    //ajouter dans le local storage
+    function addPokemon() {
+        const usersPokemonFromLocalStorage = loadDataFromLocalStorage('usersPokemon');
+
+        var img = pokemonChoisi.image;
+        img = img.slice(0, -4);
+
+        console.log("Pokemon ajouté : ", img)
+
+        const userId = "1";
+        const newPokemon = img;
+
+        if (usersPokemonFromLocalStorage.hasOwnProperty(userId)) {
+            usersPokemonFromLocalStorage[userId].pokemons.push(newPokemon);
+        } else {
+            usersPokemonFromLocalStorage[userId] = { pokemons: [newPokemon] };
+        }
+        saveDataToLocalStorage('usersPokemon', usersPokemonFromLocalStorage);
+
+        const updatedUsersPokemonFromLocalStorage = loadDataFromLocalStorage('usersPokemon');
+
+
+    }
+
     function reset() {
 
         if (user.nbVerres >= user.objectif) {
@@ -110,14 +221,17 @@ export default function Home({ navigation }) {
             const width = `0%`;
             setProgressWidth(width);
         }
-
+        if (pokemonChoisi != null) {
+            addPokemon()
+        }
         setShowModal(false)
         return;
     }
 
     function isFullMsg() {
-        if (user.nbVerres >= user.objectif) {
-            const pokemonChoisi = Pokemon[afficherId(aleatoire(valeurExclus()))];
+
+        if (user.nbVerres >= user.objectif && !isFullMsgCalled) {
+            pokemonChoisi = Pokemon[afficherId(aleatoire(valeurExclus()))];
             return (
                 <View>
                     <Text style={styles.popupText}>{`Bravo tu as gagné ${pokemonChoisi.name}!`}</Text>
@@ -133,8 +247,8 @@ export default function Home({ navigation }) {
 
     function valeurExclus() {
         var valExclus = [];
-        for (let i = 0; i < userPokemon['1'].pokemons.length; i++) {
-            valExclus.push(userPokemon['1'].pokemons[i]);
+        for (let i = 0; i < userPokemonJson['1'].pokemons.length; i++) {
+            valExclus.push(userPokemonJson['1'].pokemons[i]);
         }
         return valExclus;
     }

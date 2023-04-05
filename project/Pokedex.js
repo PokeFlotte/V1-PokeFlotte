@@ -1,17 +1,29 @@
 import React, { useState } from "react";
-import {
-  ImageBackground,
-  View,
-  TouchableOpacity,
-  Image,
-  Text,
-  StyleSheet,
-  Modal,
-} from "react-native";
-import userPokemon from "./users-pokemons.json";
+import { ImageBackground, View, TouchableOpacity, Image, Text, StyleSheet, Modal, } from "react-native";
 import BACKGROUND_IMAGE_URL from "./../assets/back.png";
 import PokemonJson from "./Pokemon.json";
-const user = userPokemon[1];
+
+const loadDataFromLocalStorage = (key) => {
+  try {
+    const jsonString = localStorage.getItem(key);
+    if (jsonString) {
+      const data = JSON.parse(jsonString);
+      //console.log('Données chargées du LocalStorage avec succès :', data);
+      return data;
+    } else {
+      //console.log('Aucune donnée trouvée pour cette clé dans le LocalStorage');
+      return null;
+    }
+  } catch (error) {
+    console.error('Erreur lors de la lecture des données du LocalStorage :', error);
+    return null;
+  }
+};
+const usersPokemonFromLocalStorage = loadDataFromLocalStorage('usersPokemon');
+const user = usersPokemonFromLocalStorage[1];
+
+
+
 
 const NUM_COLUMNS = 3;
 const NUM_ROWS = 50;
@@ -36,7 +48,29 @@ function afficherId(id) {
   return idStr;
 }
 
+
+
 export default function Pokedex() {
+  const usersPokemonFromLocalStorage = loadDataFromLocalStorage('usersPokemon');
+  const user = usersPokemonFromLocalStorage[1]; // Dans cet exemple, l'utilisateur a l'ID 1
+
+  const [capturedPokemon, setCapturedPokemon] = useState(user.pokemons); // Ajouter cette ligne de code
+
+  const NUM_COLUMNS = 3;
+  const NUM_ROWS = 50;
+  const POKEMON_IMAGES = [];
+  for (let i = 1; i <= (NUM_ROWS * NUM_COLUMNS) + 1; i++) {
+    if (capturedPokemon.includes(afficherId(i))) { // Modifier cette ligne de code
+      const image = afficherId(i) + ".png";
+      POKEMON_IMAGES.push({ id: i, imageUrl: require(`./../assets/pokemon/${image}`) });
+    } else {
+      POKEMON_IMAGES.push({ id: i, imageUrl: require("./../assets/square.jpg") });
+    }
+  }
+
+
+
+  console.log(loadDataFromLocalStorage('usersPokemon')[1].pokemons);
   const [showModal, setShowModal] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 

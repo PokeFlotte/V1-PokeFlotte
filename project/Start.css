@@ -1,0 +1,47 @@
+.backgroundImage {
+    flex: 1;
+    resizeMode: 'cover';
+}
+
+.container {
+    flex: 1;
+    justifyContent: 'center';
+    alignItems: 'center';
+}
+
+.headerContainer {
+    /*backgroundColor: 'rgba(12;192;223;0.5)';*/
+    paddingHorizontal: 20;
+    paddingVertical: 10;
+    marginBottom: 20;
+    borderRadius: 10;
+}
+
+.headerText {
+    color: 'black';
+    fontSize: 18;
+    fontWeight: 'bold';
+    textAlign: 'center';
+}
+
+.textInput {
+    backgroundColor: 'white';
+    borderColor: 'black';
+    borderWidth: 5;
+    borderRadius: 10;
+    paddingHorizontal: 10;
+    paddingVertical: 5;
+}
+
+.startButton {
+    backgroundColor: '#C80D0D';
+    borderRadius: 10;
+    paddingHorizontal: 20;
+    paddingVertical: 10;
+}
+
+.startButtonText {
+    color: 'white';
+    fontSize: 18;
+    fontWeight: 'bold';
+}
