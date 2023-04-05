@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Modal } from 'react-native';
-import users from "./users.json";
-import userPokemonJson from "./users-pokemons.json";
+//import userPokemonJson from "./users-pokemons.json";
 import Pokemon from "./Pokemon.json";
 
 const saveDataToLocalStorage = (key, newData) => {
@@ -20,8 +19,6 @@ const saveDataToLocalStorage = (key, newData) => {
         // Enregistrer les données fusionnées dans le LocalStorage
         const mergedJsonString = JSON.stringify(mergedData);
         localStorage.setItem(key, mergedJsonString);
-
-        console.log('Données enregistrées dans le LocalStorage avec succès');
     } catch (error) {
         console.error('Erreur lors de l\'enregistrement des données dans le LocalStorage :', error);
     }
@@ -33,10 +30,8 @@ const loadDataFromLocalStorage = (key) => {
         const jsonString = localStorage.getItem(key);
         if (jsonString) {
             const data = JSON.parse(jsonString);
-            //console.log('Données chargées du LocalStorage avec succès :', data);
             return data;
         } else {
-            //console.log('Aucune donnée trouvée pour cette clé dans le LocalStorage');
             return null;
         }
     } catch (error) {
@@ -59,7 +54,6 @@ const deleteDataFromLocalStorage = (key, userId) => {
                 const updatedJsonString = JSON.stringify(data);
                 localStorage.setItem(key, updatedJsonString);
 
-                console.log(`Données de l'utilisateur ${userId} supprimées avec succès du LocalStorage`);
             } else {
                 console.log(`Aucune donnée trouvée pour l'utilisateur ${userId} dans le LocalStorage`);
             }
@@ -73,9 +67,7 @@ const deleteDataFromLocalStorage = (key, userId) => {
 const deleteAllDataFromLocalStorage = (key) => {
     try {
         localStorage.removeItem(key);
-        console.log('Toutes les données supprimées avec succès du LocalStorage pour cette clé');
     } catch (error) {
-        console.error('Erreur lors de la suppression de toutes les données du LocalStorage pour cette clé :', error);
     }
 };
 
@@ -83,11 +75,152 @@ const deleteAllDataFromLocalStorage = (key) => {
 const myData1 = {
     "1": {
         "pokemons": [
-            "001",
-            "002",
+            "006",
+            "007",
+            "008",
+            "009",
+            "010",
+            "011",
+            "012",
+            "013",
+            "014",
             "015",
+            "016",
+            "017",
+            "018",
+            "019",
+            "020",
+            "021",
+            "022",
+            "023",
+            "024",
+            "025",
+            "026",
+            "027",
+            "028",
+            "029",
+            "030",
+            "031",
+            "032",
+            "033",
+            "034",
+            "035",
+            "036",
+            "037",
+            "038",
+            "039",
+            "040",
+            "041",
+            "042",
+            "043",
+            "044",
+            "045",
+            "046",
+            "047",
+            "048",
+            "049",
+            "050",
+            "051",
+            "052",
+            "053",
+            "054",
+            "055",
+            "056",
+            "057",
+            "058",
+            "059",
+            "060",
+            "061",
+            "062",
+            "063",
+            "064",
+            "065",
+            "066",
+            "067",
+            "068",
+            "069",
+            "070",
+            "071",
+            "072",
+            "073",
+            "074",
+            "075",
+            "076",
+            "077",
+            "078",
+            "079",
+            "080",
+            "081",
+            "082",
+            "083",
+            "084",
+            "085",
+            "086",
+            "087",
+            "088",
+            "089",
+            "090",
+            "091",
+            "092",
+            "093",
+            "094",
+            "095",
+            "096",
+            "097",
+            "098",
+            "099",
+            "100",
+            "101",
+            "102",
+            "103",
+            "104",
+            "105",
+            "106",
+            "107",
+            "108",
+            "109",
+            "110",
+            "111",
+            "112",
+            "113",
+            "114",
+            "115",
+            "116",
+            "117",
+            "118",
+            "119",
+            "120",
+            "121",
+            "122",
+            "123",
+            "124",
+            "125",
+            "126",
+            "127",
+            "128",
+            "129",
+            "130",
+            "131",
+            "132",
+            "133",
+            "134",
+            "135",
+            "136",
+            "137",
+            "138",
+            "139",
+            "140",
+            "141",
+            "142",
+            "143",
+            "144",
+            "145",
+            "146",
+            "147",
+            "148",
+            "149",
             "150",
-            "151"
+            "151",
         ]
     }
 };
@@ -95,8 +228,8 @@ const myData1 = {
 const myData2 = {
     "1": {
         "pseudo": "Adri-Liotte",
-        "objectif": 10,
-        "nbVerres": 6
+        "objectif": 5,
+        "nbVerres": 1
     }
 };
 
@@ -115,6 +248,7 @@ const usersFromLocalStorage = loadDataFromLocalStorage('users');
 console.log(usersFromLocalStorage, 'usersFromLocalStorage')
 const usersPokemonFromLocalStorage = loadDataFromLocalStorage('usersPokemon');
 console.log(usersPokemonFromLocalStorage, 'usersPokemonFromLocalStorage')
+const userPokemonJson = usersPokemonFromLocalStorage[1];
 
 
 const user = usersFromLocalStorage[1];
@@ -137,6 +271,7 @@ const capturePokemon = (id) => {
 
 export default function Home({ navigation }) {
 
+    const [unlockedPokemonIds, setUnlockedPokemonIds] = useState([]);
     const [isFullMsgCalled, setIsFullMsgCalled] = useState(false);
     const [count, setCount] = useState(user.nbVerres);
     const [progress, setProgress] = useState(0);
@@ -144,6 +279,9 @@ export default function Home({ navigation }) {
     const [progressWidth, setProgressWidth] = useState((100 * user.nbVerres) / MAX_PROGRESS + '%');
     const [showModal, setShowModal] = useState(false);
     var pokemonChoisi;
+
+    var valExclus = [];
+    valeurExclus();
 
     const handlePress = () => {
         if (count < MAX_PROGRESS) {
@@ -210,9 +348,7 @@ export default function Home({ navigation }) {
 
 
     }
-
     function reset() {
-
         if (user.nbVerres >= user.objectif) {
             setCount(0);
             user.nbVerres = 0;
@@ -222,16 +358,20 @@ export default function Home({ navigation }) {
             setProgressWidth(width);
         }
         if (pokemonChoisi != null) {
-            addPokemon()
+            addPokemon();
+            setUnlockedPokemonIds([...unlockedPokemonIds, pokemonChoisi.id]);
         }
-        setShowModal(false)
+        setShowModal(false);
         return;
     }
+
 
     function isFullMsg() {
 
         if (user.nbVerres >= user.objectif && !isFullMsgCalled) {
-            pokemonChoisi = Pokemon[afficherId(aleatoire(valeurExclus()))];
+            var valeurAle = aleatoire(valExclus, 151);
+            valExclus.push(valeurAle);
+            pokemonChoisi = Pokemon[afficherId(valeurAle)];
             return (
                 <View>
                     <Text style={styles.popupText}>{`Bravo tu as gagné ${pokemonChoisi.name}!`}</Text>
@@ -245,22 +385,34 @@ export default function Home({ navigation }) {
         }
     }
 
+    function stringListToIntList(strList) {
+        return strList.map((str) => parseInt(str));
+    }
+
     function valeurExclus() {
-        var valExclus = [];
-        for (let i = 0; i < userPokemonJson['1'].pokemons.length; i++) {
-            valExclus.push(userPokemonJson['1'].pokemons[i]);
+        for (let i = 0; i < userPokemonJson.pokemons.length; i++) {
+            if (!unlockedPokemonIds.includes(userPokemonJson.pokemons[i])) {
+                valExclus.push(userPokemonJson.pokemons[i]);
+            }
         }
+        valExclus = stringListToIntList(valExclus);
         return valExclus;
     }
 
-    function aleatoire(exclus) {
-        var valAleatoire = Math.floor(Math.random() * 151) + 1;
-        if (exclus.includes(valAleatoire)) {
-            aleatoire(exclus);
-        } else {
-            return valAleatoire;
-        }
+
+
+    function aleatoire(exclus, maxTentatives) {
+        var valAleatoire, nbTentatives = 0;
+        do {
+            valAleatoire = Math.floor(Math.random() * 151) + 1;
+            nbTentatives++;
+            if (nbTentatives >= maxTentatives) {
+                throw new Error("Trop de tentatives sans trouver de valeur aléatoire valide");
+            }
+        } while (exclus.includes(valAleatoire));
+        return valAleatoire;
     }
+
 
     return (
         <View style={styles.container}>
