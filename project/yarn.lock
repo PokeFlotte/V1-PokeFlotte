@@ -2863,6 +2863,11 @@ braces@^3.0.2, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
+browser-nativefs@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/browser-nativefs/-/browser-nativefs-0.12.0.tgz#4e2a5fd5ee0ebe5b988166e26fc41fd356927091"
+  integrity sha512-ZCHJcQI6bBm9YjB+6wMT1nWg+/mnWnz7r3gJ8sx7RjgLtWROFq+BuD12cAncD6y45MIbUqFM8eMKXoHXOxSFxA==
+
 browserslist@^4.0.0, browserslist@^4.14.5, browserslist@^4.21.3, browserslist@^4.21.4, browserslist@^4.21.5:
   version "4.21.5"
   resolved "https://registry.npmjs.org/browserslist/-/browserslist-4.21.5.tgz"
@@ -4408,6 +4413,11 @@ figures@^2.0.0:
   integrity sha512-Oa2M9atig69ZkfwiApY8F2Yy+tzMbazyvqv21R0NsSC8floSOC09BbT1ITWAdoMGQvJ/aZnR1KMwdx9tvHnTNA==
   dependencies:
     escape-string-regexp "^1.0.5"
+
+file-saver@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/file-saver/-/file-saver-2.0.5.tgz#d61cfe2ce059f414d899e9dd6d4107ee25670c38"
+  integrity sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==
 
 fill-range@^4.0.0:
   version "4.0.0"

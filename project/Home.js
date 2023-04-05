@@ -3,6 +3,48 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, Modal } from 'react-na
 import users from "./users.json";
 import userPokemon from "./users-pokemons.json";
 import Pokemon from "./Pokemon.json";
+//import RNFS from 'react-native-fs';
+import { Platform } from 'react-native';
+import * as FileSystem from 'expo-file-system';
+import { saveAs } from 'file-saver';
+
+
+const writeJsonFile = async (fileName, data) => {
+    try {
+        const jsonString = JSON.stringify(data);
+
+        if (Platform.OS === 'web') {
+            // Utilisez la bibliothèque file-saver pour écrire des fichiers sur le web
+            const blob = new Blob([jsonString], { type: 'application/json' });
+            saveAs(blob, `${fileName}.json`);
+            console.log('Fichier JSON écrit avec succès sur le web');
+        } else {
+            // Utilisez expo-file-system pour écrire des fichiers sur iOS et Android
+            const folderPath = `${FileSystem.documentDirectory}myFolder`;
+            const { exists } = await FileSystem.getInfoAsync(folderPath);
+            if (!exists) {
+                await FileSystem.makeDirectoryAsync(folderPath);
+            }
+
+            const filePath = `${folderPath}/${fileName}.json`;
+            await FileSystem.writeAsStringAsync(filePath, jsonString);
+            console.log('Fichier JSON écrit avec succès sur iOS/Android');
+        }
+    } catch (error) {
+        console.error('Erreur lors de l\'écriture du fichier JSON:', error);
+    }
+};
+
+
+
+const myData = {
+    key1: 'value1',
+    key2: 'value2',
+};
+
+writeJsonFile('users', myData);
+
+
 
 const user = users[1];
 
