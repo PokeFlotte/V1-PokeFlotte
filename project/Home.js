@@ -24,7 +24,6 @@ const saveDataToLocalStorage = (key, newData) => {
     }
 };
 
-
 const loadDataFromLocalStorage = (key) => {
     try {
         const jsonString = localStorage.getItem(key);
@@ -248,36 +247,29 @@ const myData2 = {
 //deleteDataFromLocalStorage('users', '2');
 
 // Supprimer toutes les données associées à la clé 'users'
-//deleteAllDataFromLocalStorage('users');
+deleteAllDataFromLocalStorage('users');
 
-// Charger les données de l'utilisateur "3" depuis le LocalStorage
-const usersFromLocalStorage = loadDataFromLocalStorage('users');
-console.log(usersFromLocalStorage, 'usersFromLocalStorage')
-const usersPokemonFromLocalStorage = loadDataFromLocalStorage('usersPokemon');
-console.log(usersPokemonFromLocalStorage, 'usersPokemonFromLocalStorage')
-const userPokemonJson = usersPokemonFromLocalStorage[1];
-
-
-const user = usersFromLocalStorage[1];
-const userPokemon = usersPokemonFromLocalStorage[1];
-
-
-const capturePokemon = (id) => {
-    const userIndex = usersPokemon.findIndex(user => user.id === 1); // trouver l'utilisateur actuel (dans cet exemple, l'utilisateur a l'ID 1)
-    if (userIndex >= 0) {
-        const user = usersPokemon[userIndex];
-        if (!user.pokemons.includes(id)) {
-            const updatedUser = { ...user, pokemons: [...user.pokemons, id] }; // ajouter le nouvel ID dans le tableau "pokemons"
-            const updatedUsers = [...usersPokemon];
-            updatedUsers[userIndex] = updatedUser;
-            saveDataToLocalStorage('usersPokemon', updatedUsers); // enregistrer les modifications dans le localStorage
-        }
-    }
-};
 
 
 export default function Home({ navigation }) {
 
+var user;
+var userPokemonJson;
+console.log(loadDataFromLocalStorage('users'));
+if (loadDataFromLocalStorage('users') != null){
+    // Charger les données de l'utilisateur "3" depuis le LocalStorage
+    const usersFromLocalStorage = loadDataFromLocalStorage('users');
+    console.log(usersFromLocalStorage, 'usersFromLocalStorage')
+    const usersPokemonFromLocalStorage = loadDataFromLocalStorage('usersPokemon');
+    console.log(usersPokemonFromLocalStorage, 'usersPokemonFromLocalStorage')
+    userPokemonJson = usersPokemonFromLocalStorage[1];
+
+    user = usersFromLocalStorage[1];
+    console.log(user);
+}
+
+
+    console.log(user);
     const [unlockedPokemonIds, setUnlockedPokemonIds] = useState([]);
     const [isFullMsgCalled, setIsFullMsgCalled] = useState(false);
     const [count, setCount] = useState(user.nbVerres);

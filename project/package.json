@@ -14,7 +14,7 @@
     "@react-navigation/stack": "^6.3.16",
     "browser-nativefs": "^0.12.0",
     "create-express-app": "^0.0.7",
-    "expo": "^48.0.9",
+    "expo": "^48.0.10",
     "expo-status-bar": "~1.4.4",
     "file-saver": "^2.0.5",
     "react": "18.2.0",
