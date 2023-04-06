@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Modal } from 'react-native';
-//import userPokemonJson from "./users-pokemons.json";
 import Pokemon from "./Pokemon.json";
 
 const saveDataToLocalStorage = (key, newData) => {
@@ -247,33 +246,32 @@ const myData2 = {
 //deleteDataFromLocalStorage('users', '2');
 
 // Supprimer toutes les données associées à la clé 'users'
-deleteAllDataFromLocalStorage('users');
+//deleteAllDataFromLocalStorage('users');
 
 
 
 export default function Home({ navigation }) {
 
-var user;
-var userPokemonJson;
-console.log(loadDataFromLocalStorage('users'));
-if (loadDataFromLocalStorage('users') != null){
-    // Charger les données de l'utilisateur "3" depuis le LocalStorage
-    const usersFromLocalStorage = loadDataFromLocalStorage('users');
-    console.log(usersFromLocalStorage, 'usersFromLocalStorage')
-    const usersPokemonFromLocalStorage = loadDataFromLocalStorage('usersPokemon');
-    console.log(usersPokemonFromLocalStorage, 'usersPokemonFromLocalStorage')
-    userPokemonJson = usersPokemonFromLocalStorage[1];
+    var user;
+    var userPokemonJson;
+    console.log(loadDataFromLocalStorage('users'));
+    if (loadDataFromLocalStorage('users') != null) {
+        // Charger les données de l'utilisateur "3" depuis le LocalStorage
+        const usersFromLocalStorage = loadDataFromLocalStorage('users');
+        console.log(usersFromLocalStorage, 'usersFromLocalStorage')
+        const usersPokemonFromLocalStorage = loadDataFromLocalStorage('usersPokemon');
+        console.log(usersPokemonFromLocalStorage, 'usersPokemonFromLocalStorage')
+        userPokemonJson = usersPokemonFromLocalStorage[1];
 
-    user = usersFromLocalStorage[1];
-    console.log(user);
-}
+        user = usersFromLocalStorage[1];
+        console.log(user);
+    }
 
 
     console.log(user);
     const [unlockedPokemonIds, setUnlockedPokemonIds] = useState([]);
     const [isFullMsgCalled, setIsFullMsgCalled] = useState(false);
     const [count, setCount] = useState(user.nbVerres);
-    const [progress, setProgress] = useState(0);
     const MAX_PROGRESS = user.objectif;
     const [progressWidth, setProgressWidth] = useState((100 * user.nbVerres) / MAX_PROGRESS + '%');
     const [showModal, setShowModal] = useState(false);
@@ -282,12 +280,22 @@ if (loadDataFromLocalStorage('users') != null){
     var valExclus = [];
     valeurExclus();
 
+    function ajouterVerre() {
+        const usersPokemonFromLocalStorage = loadDataFromLocalStorage('users');
+        usersPokemonFromLocalStorage[1].nbVerres += 1;
+        saveDataToLocalStorage('users', usersPokemonFromLocalStorage);
+    }
+    function resetVerre() {
+        const usersPokemonFromLocalStorage = loadDataFromLocalStorage('users');
+        usersPokemonFromLocalStorage[1].nbVerres = 0;
+        saveDataToLocalStorage('users', usersPokemonFromLocalStorage);
+    }
     const handlePress = () => {
         if (count < MAX_PROGRESS) {
+            ajouterVerre();
             setCount(count + 1);
             user.nbVerres = user.nbVerres + 1;
             const newProgress = user.nbVerres;
-            setProgress(newProgress);
             const width = `${(newProgress / MAX_PROGRESS) * 100}%`;
             setProgressWidth(width);
         }
@@ -343,16 +351,13 @@ if (loadDataFromLocalStorage('users') != null){
         }
         saveDataToLocalStorage('usersPokemon', usersPokemonFromLocalStorage);
 
-        const updatedUsersPokemonFromLocalStorage = loadDataFromLocalStorage('usersPokemon');
-
-
     }
     function reset() {
         if (user.nbVerres >= user.objectif) {
+            resetVerre();
             setCount(0);
             user.nbVerres = 0;
             const newProgress = 0;
-            setProgress(newProgress);
             const width = `0%`;
             setProgressWidth(width);
         }

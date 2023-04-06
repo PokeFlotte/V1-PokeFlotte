@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
+//import { useNavigation } from '@react-navigation/native';
 
 import backImage from "./../assets/back.png";
 
@@ -26,22 +27,22 @@ const saveDataToLocalStorage = (key, newData) => {
     }
 };
 
-function calculWater(weight, nbDefault=8) {
-    weight = 1*weight;
-    if(weight<=0 || weight == NaN){
+function calculWater(weight, nbDefault = 8) {
+    weight = 1 * weight;
+    if (weight <= 0 || weight == NaN) {
         console.log("Erreur ! Un poids doit être positif");
         return nbDefault;
     }
-    else if(weight < 36){
+    else if (weight < 36) {
         return 4;
     }
-    else if(weight < 54){
+    else if (weight < 54) {
         return 6;
     }
-     else if(weight<72){
+    else if (weight < 72) {
         return 8;
     }
-    else if(weight<90){
+    else if (weight < 90) {
         return 11;
     }
     else {
@@ -56,14 +57,14 @@ export default function Option({ navigation }) {
     const objectif = calculWater(poids);
     const nbVerres = 0;
 
-  function handleClick() {
-    navigation.navigate('Home');
+    function handleClick() {
+        navigation.navigate('Home');
 
-    const MyUser = {1:{pseudo, objectif, nbVerres}};
-    const MyJson = JSON.stringify(MyUser);
-    console.log(MyJson);
-    saveDataToLocalStorage('users', MyUser);
-  }
+        const MyUser = { 1: { pseudo, objectif, nbVerres } };
+        const MyJson = JSON.stringify(MyUser);
+        console.log(MyJson);
+        saveDataToLocalStorage('users', MyUser);
+    }
 
     return (
         <ImageBackground source={backImage} style={styles.backgroundImage}>

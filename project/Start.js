@@ -4,33 +4,32 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground } 
 import backImage from "./../assets/back.png";
 
 
-
 export default function Start({ navigation }) {
     function handleClick() {
         navigation.navigate('Home');
     }
 
-const loadDataFromLocalStorage = (key) => {
-    try {
-        const jsonString = localStorage.getItem(key);
-        if (jsonString) {
-            const data = JSON.parse(jsonString);
-            return data;
-        } else {
+    const loadDataFromLocalStorage = (key) => {
+        try {
+            const jsonString = localStorage.getItem(key);
+            if (jsonString) {
+                const data = JSON.parse(jsonString);
+                return data;
+            } else {
+                return null;
+            }
+        } catch (error) {
+            console.error('Erreur lors de la lecture des données du LocalStorage :', error);
             return null;
         }
-    } catch (error) {
-        console.error('Erreur lors de la lecture des données du LocalStorage :', error);
-        return null;
-    }
-};
+    };
 
-if (loadDataFromLocalStorage('users') == null){
-    console.log("entrée");
-    navigation.navigate('Option');
-}
+    if (loadDataFromLocalStorage('users') == null) {
+        navigation.navigate('Option');
+    }
 
     return (
+
         <ImageBackground source={backImage} style={styles.backgroundImage}>
             <View style={styles.container}>
                 <View style={styles.headerContainer}>
